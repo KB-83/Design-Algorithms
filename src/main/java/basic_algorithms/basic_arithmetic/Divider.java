@@ -8,8 +8,14 @@ public class Divider {
     public static void main(String[] args) {
         long x = 298745299;
         long y = 987039;
-        System.out.println(x/y +" --- "+ String.valueOf(x-y*(x/y)));
+        long time = System.nanoTime();
+        System.out.println(x/y +" --- "+ (x-y*(x/y)));
+        System.out.println("time : " +(System.nanoTime() - time));
+
+        System.out.println("-------");
+        time = System.nanoTime();
         System.out.println(divide(x,y).q+" --- "+divide(x,y).r);
+        System.out.println("my time : " +(System.nanoTime() - time));
     }
 
     public static DivisionPair divide(long x, long y) {

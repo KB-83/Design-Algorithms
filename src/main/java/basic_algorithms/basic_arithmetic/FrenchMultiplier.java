@@ -5,8 +5,14 @@ public class FrenchMultiplier {
         long x = 329017972;
         long y = 98701;
 
+        long time = System.nanoTime();
         System.out.println(multiply(x,y));
+        System.out.println("my time : " +(System.nanoTime() - time));
+
+        System.out.println("-------");
+        time = System.nanoTime();
         System.out.println(x * y);
+        System.out.println("time : " +(System.nanoTime() - time));
     }
     public static long multiply(long x, long y) {
         if (y == 0) {
