@@ -1,5 +1,3 @@
-package basic_algorithms.basic_arithmetic;
-
 public class FrenchMultiplier {
     public static void main(String[] args) {
         long x = 329017972;

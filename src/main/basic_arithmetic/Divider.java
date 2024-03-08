@@ -1,5 +1,3 @@
-package basic_algorithms.basic_arithmetic;
-
 public class Divider {
     // divide x by y: target of this class is to find
     // q and r in such a way that x = p.y + r where 0 <= r < y

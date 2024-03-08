@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage{HomeWorkTemplate}
+\usepackage{circuitikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usepackage{xepersian}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{circuits.logic.US}
+\settextfont{XB Niloofar}
+\newcounter{problemcounter}
+\newcounter{subproblemcounter}
+\setcounter{problemcounter}{1}
+\setcounter{subproblemcounter}{1}
+\newcommand{\problem}[1]
+{
+	\subsection*{
+		پرسش
+		\arabic{problemcounter} 
+		\stepcounter{problemcounter}
+		\setcounter{subproblemcounter}{1}
+		#1
+	}
+}
+\newcommand{\subproblem}{
+	\textbf{\harfi{subproblemcounter})}\stepcounter{subproblemcounter}
+}
+
+
+
+\begin{document}
+
+\handout
+{آمار و کاربرد ها}
+{تمرین سری یک}
+{کژال باغستانی}
+{۴۰۱۱۰۰۰۷۱}
+
+\input{q1.tex}
+\input{q2.tex}
+\input{q3.tex}
+
+\end{document}
