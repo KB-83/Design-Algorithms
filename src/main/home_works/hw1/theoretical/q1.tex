@@ -1,46 +1,31 @@
+% \documentclass{article}
+
+% پایه هارو ادد کن
+% \begin{document}
 \problem{}
 به صورت کلی درباره تمام قسمت ها رابطه ای را که به دست آوردم را اعلام میکنم و سپس با استقرا 
 ابتدا نشان میدهم که از O آن رابطه و 
 سپس نشان میدهم از $\Omega$ آن رابطه است.
+\\\\
 
-\subproblem{}
+% \subproblem{
+\input{a.tex}
+\input{b.tex}
+\input{c.tex}
+\input{d.tex}
+\input{e.tex}
+\input{f.tex}
+\input{g.tex}
 
 
-
-
-
-% پایه هارو ادد کن
-\subproblem{}
-ادعا : رابطه از $\Theta(n^2)$ است.\\\\
-برهان : رابطه از $O(n^2)$ است. \\\\
-به عنوان گام استقرا فرض میکنیم $T(\frac{n - \sqrt{n}}{4}) < C (\frac{n - \sqrt{n}}{4})^2$ حال داریم : \\\\
-$T(n) < 8C (\frac{n - \sqrt{n}}{4})^2 + n^2$\\\\
-$T(n) < 8C \frac{n^2 +n - n\sqrt{n}}{16} + n^2$\\\\
-$T(n) < C \frac{n^2 +n - 2n\sqrt{n}}{2} + n^2$\\\\
-$T(n) < C\frac{n^2}{2} + C\frac{n}{2} - Cn\sqrt{n} + n^2$\\\\
-$T(n) < (\frac{C}{2}+1)n^2 + C\frac{n}{2} - Cn\sqrt{n}$\\\\
-برای $C>2$ و $n>1$ داریم : \\\\
-$T(n) < Cn^2$\\\\
+% }
 
 
 
 
-\subproblem{}
-% wrong
-ادعا : رابطه از $\Theta(n^{log3})$ است.\\\\
-برهان : رابطه از $O(n^{\log3})$ است. \\\\
-به عنوان گام استقرا فرض میکنیم $T(\frac{n}{2}) < C ((\frac{n}{2})^{\log3} - \frac{n}{2})$ حال داریم : \\\\
-$T(n) < 3C (\frac{n^{\log3}}{2^{\log3}}) + n$\\\\
-$T(n) < Cn^{\log3} + n$  (n>0)\\\\
-$T(n) < C(n)^{\log3}$\\\\\\
 
-برهان : رابطه از $\Omega(n^{\log3})$ است. \\\\
-به عنوان گام استقرا فرض میکنیم $T(\frac{n}{2}) > C (\frac{n}{2})^{\log3}$ حال داریم : \\\\
-$T(n) > 3C (\frac{n^{\log3}}{2^{\log3}}) + n$\\\\
-$T(n) > Cn^{\log3} + n$  \quad $(n>0)$\\\\
-$T(n) > C(n)^{\log3}$\\\\\\
-
-\subproblem{}
-\subproblem{}
-\subproblem{}
-\subproblem{}
+% \subproblem{}
+% \subproblem{}
+% \subproblem{}
+% \subproblem{}
+% \end{document}

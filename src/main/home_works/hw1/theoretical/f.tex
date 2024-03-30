@@ -1,0 +1,16 @@
+
+\subproblem{}
+ادعا : رابطه از $\Theta(n\ln{n})$ است.\\\\
+برهان : رابطه از $O(n\ln{n})$ است. \\\\
+به عنوان گام استقرا فرض میکنیم $T(\frac{n}{3}) < C\frac{n}{3}\ln{\frac{n}{3}}$ و  $T(\frac{2n}{3}) < C\frac{2n}{3}\ln{\frac{2n}{3}}$ حال داریم : \\\\
+$T(n) < C\frac{n}{3}\ln{\frac{n}{3}} + C\frac{2n}{3}\ln{\frac{2n}{3}} + dn$\\\\
+$T(n) < C\frac{n}{3}\ln{n} - C\frac{n}{3}\ln{3}+ C\frac{2n}{3}\ln{n}+C\frac{2n}{3}\ln{2} - C\frac{2n}{3}\ln{3} + dn$\\\\
+$T(n) < Cn\ln{n} - C\frac{n}{3}\ln{3}+C\frac{2n}{3}\ln{2} - C\frac{2n}{3}\ln{3} + dn$\\\\
+که برای $C>\frac{d}{\ln{3}-\frac{2}{3}\ln{2}}$ داریم:\\\\
+$T(n) < Cn\ln{n}$\\\\\\
+
+برهان : رابطه از $\Omega(n\ln{n})$ است. \\\\
+به عنوان گام استقرا فرض میکنیم $T(\frac{n}{3}) > C\frac{n}{3}\ln{\frac{n}{3}}$ و  $T(\frac{2n}{3}) > C\frac{2n}{3}\ln{\frac{2n}{3}}$ حال داریم : \\\\
+$T(n) > Cn\ln{n} - C\frac{n}{3}\ln{3}+C\frac{2n}{3}\ln{2} - C\frac{2n}{3}\ln{3} + dn$\\\\
+که برای $0<C<\frac{d}{\ln{3}-\frac{2}{3}\ln{2}}$ داریم:\\\\
+$T(n) > Cn\ln{n}$\\\\\\
