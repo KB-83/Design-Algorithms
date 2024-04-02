@@ -17,6 +17,14 @@ static long long mod = pow(10, 9) + 7;
 static long long uglyBlue ;
 static long long uglyRed ;
 
+long long power(int n,int k) {
+    long long output = 1;
+    for(int i = 0 ; i < k;i++) {
+        output = (output%mod) * (n%mod) %mod;
+    }
+    return output;
+}
+
 
 void dfs(int v, vector<vector<int> >& adj, vector<bool>& visited, vector<int>& connectedNodes) {
     visited[v] = true;
@@ -51,8 +59,7 @@ void fillADJ(int n, vector<pair<int, int> >& input, vector<vector<int> >& adj) {
 }
 
 long long findOutput() {
-    long long output = static_cast<long long>(pow(n, k)) - uglyRed - uglyBlue;
-    output = (output + mod) % mod;
+    long long output = (((power(n, k) - (uglyRed%mod) + mod)%mod) - (uglyBlue%mod) + mod)%mod;
     return output;
 }
 
@@ -70,32 +77,32 @@ long long fillUgly(string color){
     vector<vector<int> > adj(n + 1);
     fillADJ(n, edges, adj);
     findConnectedComponents(n, adj);
-    // cout << "size" << color << connectedComponentsList.size() << endl;
-
     long long ugly = 0;
     for (const vector<int>& connectedComponent : connectedComponentsList) {
         int componentSize = connectedComponent.size();
-        ugly = (ugly + static_cast<long long>(pow(componentSize, k))) % mod;
-        ugly = ugly - componentSize;
+        ugly = ((ugly)%mod + power(componentSize,k))%mod;
+        ugly = ((ugly%mod) - (componentSize%mod)+mod)%mod;
     }
-    // cout << color << ugly << endl;
     return ugly;
 
 }
 int main() {
     cin >> n >> k;
-
     for (int i = 0; i < n - 1; i++) {
         int u, v;
         string color;
         cin >> u >> v >> color;
         lines.push_back(make_pair(make_pair(u,v),color));
     }
-
+    if(k!= 0){
     uglyBlue = fillUgly("BLUE");
     uglyRed = fillUgly("RED");
 
     cout << findOutput() << endl;
+    }
+    else{
+            cout << 0 << endl;
+    }
 
     return 0;
 }
