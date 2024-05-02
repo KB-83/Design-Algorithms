@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{/Users/kajal/Documents/Design-Algorithms-Course/resources/latex/template/HomeWorkTemplate}
+\usepackage{circuitikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{xepersian}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{changepage}
+
+
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{circuits.logic.US}
+\settextfont{XB Niloofar}
+
+\newcounter{problemcounter}
+\newcounter{subproblemcounter}[problemcounter]
+\newcounter{partcounter}[subproblemcounter]
+
+\renewcommand{\thesubproblemcounter}{\alph{subproblemcounter})}
+\renewcommand{\thepartcounter}{\roman{partcounter})}
+
+\newcommand{\problem}[1]{
+    \setcounter{subproblemcounter}{0}
+    \stepcounter{problemcounter}
+    \subsection*{پرسش \arabic{problemcounter} #1}
+}
+
+\newcommand{\subproblem}[1]{
+    \setcounter{partcounter}{0}
+    \stepcounter{subproblemcounter}
+    \textbf{\harfi{subproblemcounter})}
+}
+
+\newcommand{\parte}[1]{
+    \stepcounter{partcounter}
+	\arabic{partcounter})
+}
+
+
+
+\begin{document}
+
+\handout
+{آنالیز الگوریتم ها}
+{تمرین سری سه}
+{کژال باغستانی}
+{۴۰۱۱۰۰۰۷۱}
+
+
+\end{document}
