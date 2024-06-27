@@ -9,7 +9,7 @@ class Node:
 # get input
 input = list
 
-class Graph:
+class q5.Graph:
     def __init__(self,nodesList):
         self.nodesList = nodesList
         distances = []
