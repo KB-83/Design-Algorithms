@@ -11,40 +11,50 @@ public class Q1 {
         int t = scanner.nextInt();
         scanner.nextLine();
 
+        //test 2 has got n = 9
+
+        ArrayList<ArrayList<Long>> out = new ArrayList<>();
+
+
         for (int i = 0; i < t; i++) {
             int n = scanner.nextInt();
-            if (n == 0) {
-                continue;
-            }
+//            if (n > 9) {
+//                throw new RuntimeException();
+//            }
             int k = scanner.nextInt();
             scanner.nextLine();
+            ArrayList ans = new ArrayList<>();
+            out.add(ans);
 
-            int[][] beauty = new int[n + 1][n + 1];
+            long[][] beauty = new long[n + 1][n + 1];
             for (int j = 1; j < n + 1; j++) {
                 for (int q = j; q < n + 1; q++) {
                     beauty[j][q] = scanner.nextInt();
+//                    if (beauty[i][j] > 10000){
+//                        throw new RuntimeException();
+//                    }
                 }
-                if(j == n-1) {
-                    scanner.nextLine();
-                }
+//                if(j == n-1) {
+//                    scanner.nextLine();
+//                }
             }
 
-            int[][] dp = new int[n + 1][k];
+            long[][] dp = new long[n + 1][k];
             dp[0][0] = 0;
             dp[1][0] = beauty[1][1];
             for (int j = 2; j < n + 1; j++) {
-                ArrayList<Integer> data = new ArrayList<>();
-                for (int p = j ; p >= 0; p--) {
+                ArrayList<Long> data = new ArrayList<>();
+                for (int p = j ; p >= 2; p--) {
                     for (int takoja = p - 2; takoja >= 0; takoja--) {
-                        for (int s = 0; s < Math.min(k, Math.pow(2, takoja-1)); s++) {
+                        for (int s = 0; s < Math.max(Math.min(k, Math.pow(2, takoja-1)),1); s++) {
                             data.add(dp[takoja][s] + beauty[p][j]);
                         }
                     }
                 }
                 data.add(beauty[1][j]);
-                Collections.sort(data, new Comparator<Integer>() {
+                Collections.sort(data, new Comparator<Long>() {
                     @Override
-                    public int compare(Integer o1, Integer o2) {
+                    public int compare(Long o1, Long o2) {
                         return o2.compareTo(o1);
                     }
                 });
@@ -63,12 +73,25 @@ public class Q1 {
                         }
                     }
                     start[maxIndex]++;
-                    System.out.print(max + " ");
+                    ans.add(max);
+//                    System.out.print(max + " ");
                     max = Long.MIN_VALUE;
                 }
-                System.out.println();
+//                System.out.println();
 
             }
+
+        for (int i = 0 ; i < out.size() ; i++) {
+            for (int j = 0 ; j < out.get(i).size() ; j++) {
+                System.out.print(out.get(i).get(j));
+                if(j != out.get(i).size() -1) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
         }
 
+
 }
+

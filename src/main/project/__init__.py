@@ -1,47 +1,35 @@
-def calculate_beauty(a, config, n):
-    beauty = 0
-    i = 0
-    while i < n:
-        if config & (1 << i):
-            start = i
-            while i < n and (config & (1 << i)):
-                i += 1
-            end = i - 1
-            beauty += a[start][end - start]
-        else:
-            i += 1
-    return beauty
+import numpy as np
+import pandas as pd
 
+# Example DataFrame
+data = {
+    'A': [1, 2, 3, 4, 5],
+    'B': [2, 3, 4, 5, 6],
+    'C': [5, 4, 3, 2, 1]
+}
+df = pd.DataFrame(data)
 
-def find_top_k_beauties(t, test_cases):
-    results = []
-    for case in test_cases:
-        n, k, a = case
+# Manually calculate the correlation matrix
+def calculate_correlation_matrix(df):
+    # Step 1: Calculate the means
+    means = df.mean()
 
-        all_beauties = []
+    # Step 2: Center the data
+    centered_data = df - means
 
-        # Iterate over all possible configurations (2^n)
-        for config in range(1 << n):
-            beauty = calculate_beauty(a, config, n)
-            all_beauties.append(beauty)
+    # Step 3: Calculate the covariance matrix
+    covariance_matrix = centered_data.cov()
 
-        # Sort and get the top k beauties
-        all_beauties.sort(reverse=True)
-        top_k_beauties = all_beauties[:k]
+    # Step 4: Calculate the standard deviations
+    std_devs = df.std()
 
-        results.append(top_k_beauties)
+    # Step 5: Calculate the correlation matrix
+    correlation_matrix = covariance_matrix / np.outer(std_devs, std_devs)
 
-    return results
+    return correlation_matrix
 
+# Using pandas built-in method
+print(df.corr())
 
-# Example usage:
-t = 3
-test_cases = [
-    (5, 10, [[3, 8, 4, 8, 0], [-8, -9, -8, 9], [1, -8, -8], [1, 7], [8]]),
-    (4, 10, [[2, -8, -9, -4], [-1, 0, -8], [0, -7], [8]]),
-    (5, 10, [[5, -8, 1, 2, 6], [-6, 5, 7, 1], [7, 2, 0], [-1, 3], [-1]])
-]
-
-results = find_top_k_beauties(t, test_cases)
-for res in results:
-    print(' '.join(map(str, res)))
+# Using our manual calculation
+print(calculate_correlation_matrix(df))

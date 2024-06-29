@@ -1,3 +1,8 @@
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Collections;
+//import java.util.List;
+//
 //package q5;
 //import java.util.ArrayList;
 //import java.util.List;
@@ -212,6 +217,40 @@
 //        return 1.0;
 //    }
 //}
+//public class Q5P {
+//    public static void main(String[] args) {
+//        List<List<Double>> A = new ArrayList<>();
+//        A.add(Arrays.asList(1.0, 0.0));
+//        A.add(Arrays.asList(0.0, 1.0));
+//        A.add(Arrays.asList(1.0, 1.0));
+//
+//        // Define the right-hand side vector b
+//        List<Double> b = Arrays.asList(200.0, 300.0, 400.0);
+//
+//        // Define the cost vector c
+//        List<Double> c = Arrays.asList(1.0, 6.0);
+//
+//        // Create an instance of the LPSolver
+//        LPSolver solver = new LPSolver(A, b, c);
+//
+//        // Create a list to store the solution
+//        List<Double> x = new ArrayList<>();
+//        for(int i = 0 ; i < c.size() ; i++) {
+//            x.add(0.0);
+//        }
+//
+//
+//        // Solve the linear programming problem
+//        double result = solver.solve(x);
+//
+//        // Print the result
+//        System.out.println("Optimal value: " + result);
+//        System.out.println("Optimal solution: " + x);
+//
+//
+//
+//    }
+//}
 //
 //class LPSolver {
 //    private static final double EPS = 1e-8;
@@ -354,11 +393,8 @@
 //
 //        if (x != null) {
 //            x.clear();
-//            x.addAll(new ArrayList<>(n));
-//            for (int j = 0; j < n; j++) {
-//                if (N.get(j) < n) {
-//                    x.set(N.get(j), 0.0);
-//                }
+//            for (int i = 0; i < n; i++) {
+//                x.add(0.0);
 //            }
 //
 //            for (int i = 0; i < m; i++) {
