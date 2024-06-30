@@ -1,6 +1,9 @@
+package q4;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+
+//accepted
 
 public class Q4 {
     public static void main(String[] args) {
